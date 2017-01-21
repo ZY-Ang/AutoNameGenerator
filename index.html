@@ -27,6 +27,53 @@
         vertical-align: middle;
         text-align: center;
     }
+    
+    .awesome{
+        background: #222 url(/images/alert-overlay.png) repeat-x;
+        display: inline-block;
+        padding: 5px 10px 6px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 1;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        position: relative;
+        cursor: pointer;
+        
+    }
+    
+    .small.awesome {
+        font-size: 11px;
+    }
+    .medium.awesome {
+        font-size: 13px;
+    }
+    .large.awesome {
+        font-size: 50px;
+        padding: 8px 14px 9px;
+    }
+     
+    /* Colors ---------- */
+    .blue.awesome {
+        background-color: #2daebf;
+    }
+    .red.awesome {
+        background-color: #e33100;
+    }
+    .magenta.awesome {
+        background-color: #a9014b;
+    }
+    .orange.awesome {
+        background-color: #ff5c00;
+    }
+    .yellow.awesome {
+        background-color: #ffb515;
+    }
 </style>
 <script>
     var vowels = ["a", "e", "i", "o", " ", "u", "ue", "ui", " ", "oa", "ie", "ea", " ", "oe", "eo", "io", "oi", "oh", "ah"];
@@ -86,7 +133,7 @@
         <div id="test">
             <img src="fatunicorn.png" alt="Look At Them Corns" style="width:500px;height:500px;">
             <h1 id="myLabel" style="font-family:helvetica;">Automatic Group Name Generator</h1>
-            <button onclick="create_random_name();">Buttonz</button>
+            <button class="large red awesome" onclick="create_random_name();">Buttonz</button>
         </div>
 </body>
 </html>
