@@ -2,24 +2,25 @@
 
 <html>
 <head>
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
     <title>Make An Automatic Name For Your Group!</title>
+    <link rel="icon" type="image/ico" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
 </head>
 <style type="text/css">
     #test{
@@ -76,9 +77,9 @@
     }
 </style>
 <script>
-    var vowels = ["a", "e", "i", "o", " ", "u", "ue", "ui", " ", "oa", "ie", "ea", " ", "oe", "eo", "io", "oi", "oh", "ah"];
-    var consonants = ["b", "c", "d", " ", "f", "g", "h", " ", "j", "k", "l", "m", "n", "p", "q", " ", "r", "s", "t", "v", "w", "x", "y", "z", "kh", "ch"];
-    var ending = ["", ".", "!", "?", "!", "$$$"];
+    var vowels = ["a", "e", "i", "o", "u", "ue", "ui", "oa", "ie", "ea", "oe", "eo", "io", "oi", "oh", "ah", "ee", "oo"];
+    var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "kh", "ch", "ck", "sh", "cl", "kl", "ng", "gn", "st", "rr", "ll", "ph", "rd", "wh", "tt", "chr", "fr", "nk", "lf", "nc"];
+    var ending = ["", ".", "!", "?", "!", "s", "e"];
     
     function randomColor() {
         var letters = '0123456789ABCDEF';
@@ -90,7 +91,7 @@
     }
     
     function getSound() {
-        var sounds = ['Badumtsk.mp3', 'gong.mp3'];
+        var sounds = ['Badumtsk.mp3', 'gong.mp3', 'Meow.mp3'];
         return sounds[Math.floor(Math.random() * sounds.length)];
     }
     
@@ -101,11 +102,12 @@
         setInterval(function(){ document.getElementById("myLabel").innerHTML = "Bazinga!"; }, 30000);
         var output = "error";
         var randomStart = Math.round(Math.random());
-        var randomLength = Math.floor(Math.random() * Math.random() * 16.18) + 3;
+        var randomLength = Math.floor(Math.random() * Math.random() * 13.82) + 3;
+        var i;
         if (randomStart) {
             //case for vowel start
             output = "";
-            for (var i = 0; i < randomLength; i++) {
+            for (i = 0; i < randomLength; i++) {
                 if (i % 2 === 0) {
                     output += vowels[Math.floor(Math.random() * vowels.length)];
                 } else {
@@ -115,7 +117,7 @@
         } else {
             //case for consonant start
             output = "";
-            for (var i = 0; i < randomLength; i++) {
+            for (i = 0; i < randomLength; i++) {
                 if (i % 2 === 0) {
                     output += consonants[Math.floor(Math.random() * consonants.length)];
                 } else {
