@@ -29,52 +29,47 @@
         text-align: center;
     }
     
-    .awesome{
-        background: #222 url(/images/alert-overlay.png) repeat-x;
-        display: inline-block;
-        padding: 5px 10px 6px;
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        line-height: 1;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-        border-bottom: 1px solid rgba(0,0,0,0.25);
-        position: relative;
-        cursor: pointer;
-        
+    .myButton {
+        -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+        box-shadow:inset 0px 1px 0px 0px #f29c93;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+        background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+        background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+        background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+        background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+        background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+        background-color:#fe1a00;
+        -moz-border-radius:42px;
+        -webkit-border-radius:42px;
+        border-radius:42px;
+        border:1px solid #d83526;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:28px;
+        font-weight:bold;
+        padding:32px 61px;
+        text-decoration:none;
+        text-shadow:0px 4px 5px #b23e35;
     }
-    
-    .small.awesome {
-        font-size: 11px;
+    .myButton:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00));
+        background:-moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+        background:-webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+        background:-o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+        background:-ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+        background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00',GradientType=0);
+        background-color:#ce0100;
     }
-    .medium.awesome {
-        font-size: 13px;
+    .myButton:active {
+        position:relative;
+        top:1px;
     }
-    .large.awesome {
-        font-size: 50px;
-        padding: 8px 14px 9px;
-    }
-     
-    /* Colors ---------- */
-    .blue.awesome {
-        background-color: #2daebf;
-    }
-    .red.awesome {
-        background-color: #e33100;
-    }
-    .magenta.awesome {
-        background-color: #a9014b;
-    }
-    .orange.awesome {
-        background-color: #ff5c00;
-    }
-    .yellow.awesome {
-        background-color: #ffb515;
-    }
+
 </style>
 <script>
     var vowels = ["a", "e", "i", "o", "u", "ue", "ui", "oa", "ie", "ea", "oe", "eo", "io", "oi", "oh", "ah", "ee", "oo"];
@@ -95,7 +90,11 @@
         return sounds[Math.floor(Math.random() * sounds.length)];
     }
     
+    
+    
     function create_random_name() {
+        window.clearInterval();
+        window.clearTimeout();
         var audio = new Audio(getSound());
         audio.play();
         document.body.style.backgroundColor = randomColor();
@@ -128,14 +127,17 @@
         document.getElementById("myLabel").innerHTML = output + ending[Math.floor(Math.random() * ending.length)];
     }
     
+    //TODO: Build dictionary, checkbox to add option for dictionary generation in addition to new word generation.
+    
     
 </script>
 
 <body>
         <div id="test">
+            <input type="checkbox" name="vehicle" value="T">I have a bike<br>
             <img src="fatunicorn.png" alt="Look At Them Corns" style="width:500px;height:500px;">
             <h1 id="myLabel" style="font-family:helvetica;">Automatic Group Name Generator</h1>
-            <button class="large red awesome" onclick="create_random_name();">Buttonz</button>
+            <button class="myButton" onclick="create_random_name();">PRESS</button>
         </div>
 </body>
 </html>
