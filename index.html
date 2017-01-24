@@ -76,10 +76,6 @@
     var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "kh", "ch", "ck", "sh", "cl", "kl", "ng", "gn", "st", "rr", "ll", "ph", "rd", "wh", "tt", "chr", "fr", "nk", "lf", "nc"];
     var ending = ["", ".", "!", "?", "!", "s", "e"];
 
-	function selectWord(dictionary) {
-		var wordselector = Math.floor(Math.random()*354931);
-	}
-	
     function randomColor() {
         var letters = '0123456789ABCDEF';
         var color = '#';
@@ -90,7 +86,7 @@
     }
 
     function getSound() {
-        var sounds = [document.getElementById("baDumTskSound"), document.getElementById("gongSound"), document.getElementById("meowSound")];
+        var sounds = ['Badumtsk.mp3', 'gong.mp3', 'Meow.mp3'];
         return sounds[Math.floor(Math.random() * sounds.length)];
     }
 
@@ -101,7 +97,6 @@
         window.clearTimeout();
         var audio = new Audio(getSound());
         audio.play();
-        //possible overflow with new implementation
         document.body.style.backgroundColor = randomColor();
         setInterval(function(){ document.getElementById("myLabel").innerHTML = "Bazinga!"; }, 30000);
         var output = "error";
@@ -129,41 +124,22 @@
                 }
             }
         }
-        document.getElementById("nameLbl").innerHTML = output + ending[Math.floor(Math.random() * ending.length)];
+        document.getElementById("myLabel").innerHTML = output + ending[Math.floor(Math.random() * ending.length)];
     }
 
     //TODO: Option to change to english word combination or random or both
-    //TODO: add animated loadup screen for selecting option choices
-    //TODO: mobile support
     //TODO: Build dictionary, checkbox to add option for dictionary generation in addition to new word generation.
     //TODO: countdown timer
     //TODO: drumroll
     //TODO: implement a faster method of accessing audio using html object instead of through js
-    //TODO: change file size for sounds to 128k or lower for faster loading
-    //TODO: ogg file format for audio?
-    //TODO: use option menu instead of checkbox
 
 </script>
 
 <body>
-	<audio hidden id="baDumTskSound">
-       <!--<source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">  -->
-       <source src="Badumtsk.mp3" type="audio/mpeg">
-       Your browser does not support the audio element.
-</audio>
-<audio hidden id="gongSound">
-       <source src="gong.mp3" type="audio/mpeg">
-       Your browser does not support the audio element.
-</audio>
-<audio hidden id="meowSound">
-       <source src="meow.mp3" type="audio/mpeg">
-       Your browser does not support the audio element.
-</audio>
         <div id="test">
-            <input type="checkbox" name="vehicle" value="checked">Random Checkbox<br>
-            <img src="fatunicorn.png" alt="No unicorns for you :(" style="width:61%;height:61%; font-size: 50; text-align: center;">
-            
-            <div id="nameLbl" style="font-family:helvetica; font-size: 10vw;">Automatic Group Name Generator</div>
+            <input type="checkbox" name="vehicle" value="T">Random Checkbox<br>
+            <img src="fatunicorn.png" alt="Look At Them Corns" style="width:500px;height:500px;">
+            <h1 id="myLabel" style="font-family:helvetica;">Automatic Group Name Generator</h1>
             <button class="myButton" onclick="create_random_name();">PRESS</button>
         </div>
 </body>
