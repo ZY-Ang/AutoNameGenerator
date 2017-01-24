@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#ffffff"/>
 </head>
 <style type="text/css">
-    #test{
+    #Wrapper{
         position: relative;
         vertical-align: middle;
         text-align: center;
@@ -75,6 +75,8 @@
     var vowels = ["a", "e", "i", "o", "u", "ue", "ui", "oa", "ie", "ea", "oe", "eo", "io", "oi", "oh", "ah", "ee", "oo"];
     var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "kh", "ch", "ck", "sh", "cl", "kl", "ng", "gn", "st", "rr", "ll", "ph", "rd", "wh", "tt", "chr", "fr", "nk", "lf", "nc"];
     var ending = ["", ".", "!", "?", "!", "s", "e"];
+	var bazinga;
+	var iPresentYouName;
 
 	function selectWord(dictionary) {
 		var wordselector = Math.floor(Math.random()*354931);
@@ -94,16 +96,11 @@
         return sounds[Math.floor(Math.random() * sounds.length)];
     }
 
-
-
     function create_random_name() {
-        window.clearInterval();
-        window.clearTimeout();
-        var audio = new Audio(getSound());
-        audio.play();
-        //possible overflow with new implementation
+        clearInterval(bazinga);
+		getSound().play();
         document.body.style.backgroundColor = randomColor();
-        setInterval(function(){ document.getElementById("myLabel").innerHTML = "Bazinga!"; }, 30000);
+        bazinga = setInterval(function(){ document.getElementById("nameLbl").innerHTML = "Bazinga!"; }, 30000);
         var output = "error";
         var randomStart = Math.round(Math.random());
         var randomLength = Math.floor(Math.random() * Math.random() * 13.82) + 3;
@@ -129,41 +126,41 @@
                 }
             }
         }
-        document.getElementById("nameLbl").innerHTML = output + ending[Math.floor(Math.random() * ending.length)];
+		iPresentYouName = output + ending[Math.floor(Math.random() * ending.length)];
+        document.getElementById("nameLbl").innerHTML = iPresentYouName;
     }
 
+    //TODO: use option menu instead of checkbox
     //TODO: Option to change to english word combination or random or both
     //TODO: add animated loadup screen for selecting option choices
     //TODO: mobile support
     //TODO: Build dictionary, checkbox to add option for dictionary generation in addition to new word generation.
     //TODO: countdown timer
     //TODO: drumroll
-    //TODO: implement a faster method of accessing audio using html object instead of through js
-    //TODO: change file size for sounds to 128k or lower for faster loading
-    //TODO: ogg file format for audio?
-    //TODO: use option menu instead of checkbox
 
 </script>
 
 <body>
 	<audio hidden id="baDumTskSound">
-       <!--<source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">  -->
+       <source src="Badumtsk.ogg" type="audio/ogg">
        <source src="Badumtsk.mp3" type="audio/mpeg">
        Your browser does not support the audio element.
 </audio>
 <audio hidden id="gongSound">
-       <source src="gong.mp3" type="audio/mpeg">
+       <source src="Gong.ogg" type="audio/ogg">
+       <source src="Gong.mp3" type="audio/mpeg">
        Your browser does not support the audio element.
 </audio>
 <audio hidden id="meowSound">
-       <source src="meow.mp3" type="audio/mpeg">
+       <source src="Meow.ogg" type="audio/ogg">
+       <source src="Meow.mp3" type="audio/mpeg">
        Your browser does not support the audio element.
 </audio>
-        <div id="test">
+        <div id="Wrapper" style="height:inherit;">
             <input type="checkbox" name="vehicle" value="checked">Random Checkbox<br>
-            <img src="fatunicorn.png" alt="No unicorns for you :(" style="width:61%;height:61%; font-size: 50; text-align: center;">
+            <img src="fatunicorn.png" alt="No unicorns for you :(" style="width: 24%; font-size: larger; text-align: center;">
             
-            <div id="nameLbl" style="font-family:helvetica; font-size: 10vw;">Automatic Group Name Generator</div>
+            <div id="nameLbl" style="font-family:helvetica; font-size: 7vw;">Auto Name Generator</div>
             <button class="myButton" onclick="create_random_name();">PRESS</button>
         </div>
 </body>
